@@ -20,24 +20,39 @@ export default function Home() {
           </ul>
         </div>
     </nav>
-    <div className='flex items-center p-5'>
-      <p className='text-rose-400 font-bold'>
-        Unforgettable Dates, Effortlessly Planned.
-      </p>
-      <p className='text-rose-400'>
-        Plan-It is your Guide to Hidden Gems and Must-See Spots
-      </p>
-      <button>
-        Get Started
-      </button>
-      <a href="#">
-        Already have an account? Sign In
-      </a>
+
+    {/* content + pictures */}
+    <div className="flex justify-between p-10 items-center">
+      {/* content */}
+      <div className="">
+        {/* First header */}
+        <div className='flex p-5'>
+          <p className='text-rose-500 font-bold p-5 text-5xl'>
+            Unforgettable Dates, Effortlessly Planned.
+          </p>
+        </div>
+        {/* Decription */}
+        <div className='flex p-5 text-lg'>
+          <p className='text-rose-400 p-5'>
+            Plan-It is your Guide to Hidden Gems and Must-See Spots
+          </p>
+        </div>
+        {/* Alt signup / signin */}
+        <div className='flex items-center p-5 m-5 space-x-3'>
+          <button className='bg-rose-400 font-bold p-5 text-stone-50 p-5 rounded-md hover:text-stone-300'>
+            Get Started
+          </button>
+          <a href="#">
+            Already have an account? Sign In
+          </a>
+        </div>
+      </div>
+
+      <div>
+        {/* <Image alt='anteater' src={uci_Logo} width={100} height={100} /> */}
+        <Image alt='logo' src={Logo} width={600} height={600}/>
+      </div>
     </div>
-    <>
-      <Image alt='anteater' src={uci_Logo} width={200} height={200} />
-      <Image alt='logo' src={Logo} width={500} height={500}/>
-    </>
     </>
   );
 }
