@@ -68,3 +68,11 @@ app.get("/", (req, res) => {
 app.listen(5001, async () => {
   console.log("Server listening on port 5001");
 });
+
+
+app.get("/test", async (req, res) => {
+  jim = await accountsCollection.findOne({"first_name":"Jim"})
+
+  console.log(jim)
+  return res.send("Hello World!");
+});
