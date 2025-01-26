@@ -223,9 +223,11 @@ app.post("/createUserProfile", (req, res) => {
   };
 
   accountsCollection.insertOne(payload, (err, res) => {
-    if (err) throw err;
+    if (err) return {"reason": err};
     console.log("1 document inserted.");
   });
+
+  return {"reason": "success"}
 });
 
 // Req data [email , name, address, operating_hours, type, description, price_range, phone_number, preferences]

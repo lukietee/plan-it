@@ -1,3 +1,6 @@
+"use client"
+
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import heart_1 from "../assets/mdi_heart_1.png";
 import heart_2 from "../assets/mdi_heart.png";
@@ -5,6 +8,48 @@ import heart_2 from "../assets/mdi_heart.png";
 import { Container } from "postcss";
 
 export default function Home() {
+
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+
+  const usernameRef = useRef()
+  const passwordRef = useRef()
+
+
+  const changeUsername = () => {
+    setUsername(usernameRef.current.value)
+  }
+
+  const changePassword = () => {
+    setPassword(passwordRef.current.value)
+  }
+
+
+  function loginUser() {
+    fetch("http://127.0.0.1:5001/createUserProfile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+      credentials: "include",
+    }).then((response) =>
+      response.json().then((data) => {
+        if (data.success === false) console.log(data.reason);
+
+        // if (data.success === true) {
+        //   window.location.href = "/";
+        // }
+
+        alert("working")
+      }),
+    );
+  }
+
+
   return (
     <>
     <nav className="flex items-center justify-between p-5 h-16 bg-primary">
@@ -26,17 +71,17 @@ export default function Home() {
             </div>
 
             <div className="py-4">
-            <input type="text" name="email" id="email" class="text-base text-primary placeholder:text-primary focus:outline-none bg-stone-200 rounded-md" placeholder="Email Address">
+            <input onChange={changeUsername} type="text" ref={usernameRef} className="text-base text-primary placeholder:text-primary focus:outline-none bg-stone-200 rounded-md" placeholder="Email Address">
             </input>
             </div>
 
             <div className="py-4">
-            <input type="text" name="password" id="password" class="text-base text-primary placeholder:text-primary focus:outline-none bg-stone-200 rounded-md" placeholder="Password">
+            <input onChange={changePassword} type="text" ref={passwordRef} className="text-base text-primary placeholder:text-primary focus:outline-none bg-stone-200 rounded-md" placeholder="Password">
             </input>
             </div>
 
             <div className="py-4">
-            <button className="text-secondary bg-primary rounded-md hover:text-stone-300">
+            <button className="text-secondary bg-primary rounded-md hover:text-stone-300" onClick={loginUser}>
                 Login
             </button>
             </div>
