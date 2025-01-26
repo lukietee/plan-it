@@ -6,25 +6,25 @@ import uci_Logo from "./assets/uci_logo.png"
 export default function Home() {
   return (
     <>
-      <nav class="flex items-center justify-between p-5 h-16 bg-rose-400">
-        <div class= "flex gap-5 items-center">
-          <a href="https://planithacks.vercel.app/" class="text-xl font-bold text-stone-50 hover:text-blue-600">Plan-It</a>
+      <nav className="flex items-center justify-between p-5 h-16 bg-rose-400">
+        <div className= "flex gap-5 items-center">
+          <a href="" className="text-xl font-bold text-stone-50 hover:text-blue-600">Plan-It</a>
 
-          <a href="#" class="text-stone-50 hover:text-blue-600">Dating</a>
-          <a href="#" class="text-stone-50 hover:text-blue-600">Businesses</a>
+          <a href="#" className="text-stone-50 hover:text-blue-600">Dating</a>
+          <a href="#" className="text-stone-50 hover:text-blue-600">Businesses</a>
         </div>
         <div>
-          <ul class="flex gap-4">
-            <li><a href="#" class="bg-stone-50 text-rose-400 hover:text-blue-600 rounded-md p-2">Log in</a></li>
-            <li><a href="#" class="bg-stone-50 text-rose-400 hover:text-blue-600 rounded-md p-2">Sign up</a></li>
+          <ul className="flex gap-4">
+            <li><a href="login" className="bg-stone-50 text-rose-400 hover:text-blue-600 rounded-md p-2">Log in</a></li>
+            <li><a href="signup" className="bg-stone-50 text-rose-400 hover:text-blue-600 rounded-md p-2">Sign up</a></li>
           </ul>
         </div>
     </nav>
-    <div class='flex items-center p-5'>
-      <p class='text-rose-400 font-bold'>
+    <div className='flex items-center p-5'>
+      <p className='text-rose-400 font-bold'>
         Unforgettable Dates, Effortlessly Planned.
       </p>
-      <p class='text-rose-400'>
+      <p className='text-rose-400'>
         Plan-It is your Guide to Hidden Gems and Must-See Spots
       </p>
       <button>
