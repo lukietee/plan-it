@@ -1,3 +1,7 @@
+import Image from "next/image";
+import heart_1 from "../assets/mdi_heart_1.png";
+import heart_2 from "../assets/mdi_heart.png";
+
 import { Container } from "postcss";
 
 export default function Home() {
@@ -9,40 +13,37 @@ export default function Home() {
         </div>
     </nav>
 
-    <div className="bg-secondary">
-        
-    </div>
-    <div className="bg-primary">
-        
+    <div className="h-10 bg-secondary">
     </div>
 
-    {/* content + pictures */}
-    <div className="flex justify-between p-10 items-center">
-      {/* content */}
-      <div className="">
-        {/* First header */}
-        <div className='flex p-5'>
-          <p className='text-rose-500 font-bold p-5 text-5xl'>
-            Unforgettable Dates, Effortlessly Planned.
-          </p>
+    <div className="bg-primary vertical-align:middle">
+        <div className="bg-secondary vertical-align:middle">
+            
+            <div className="py-4">
+            <p className="text-primary text-lg font-bold">
+                Login
+            </p>
+            </div>
+
+            <div className="py-4">
+            <input type="text" name="email" id="email" class="text-base text-primary placeholder:text-primary focus:outline-none bg-stone-200 rounded-md" placeholder="Email Address">
+            </input>
+            </div>
+
+            <div className="py-4">
+            <input type="text" name="password" id="password" class="text-base text-primary placeholder:text-primary focus:outline-none bg-stone-200 rounded-md" placeholder="Password">
+            </input>
+            </div>
+
+            <div className="py-4">
+            <button className="text-secondary bg-primary rounded-md hover:text-stone-300">
+                Login
+            </button>
+            </div>
+
         </div>
-        {/* Decription */}
-        <div className='flex p-5 text-lg'>
-          <p className='text-primary p-5'>
-            Plan-It is your Guide to Hidden Gems and Must-See Spots
-          </p>
-        </div>
-        {/* Alt signup / signin */}
-        <div className='flex items-center p-5 m-5 space-x-3'>
-          <button className='bg-primary font-bold p-5 text-secondary p-5 rounded-md hover:text-stone-300'>
-            Get Started
-          </button>
-          <a href="#">
-            Already have an account? Sign In
-          </a>
-        </div>
-      </div>
     </div>
+
     </>
   );
 }
