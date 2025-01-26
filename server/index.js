@@ -68,3 +68,71 @@ app.get("/", (req, res) => {
 app.listen(5001, async () => {
   console.log("Server listening on port 5001");
 });
+
+
+app.get("/test", async (req, res) => {
+  jim = await accountsCollection.findOne({"first_name":"Jim"})
+
+  console.log(jim)
+  return res.send("Hello World!");
+});
+
+// Req data [email, password]
+app.post("/createBusinessProfile", (req, res) => {
+  const data    = req.body;
+  const payload = { 
+    email:    data.email, 
+    password: data.password
+  };
+
+  locationsCollection.insertOne(payload, (err, res) => {
+    if (err) throw err;
+    console.log("1 document inserted.");
+  });
+});
+
+// Req data [email , name, address, operating_hours, type, description, price_range, phone_number, preferences]
+app.post("/updateBusinessProfile", (req, res) => {
+  const data    = req.body;
+  const query   = data.email; 
+  const payload = { 
+    name:            data.name, 
+    address:         data.address, 
+    operating_hours: data.operating_hours, 
+    type:            data.type, 
+    description:     data.description, 
+    price_range:     data.price, 
+    phone_number:    data.phone_number, 
+    preferences:     data.preferences
+  };
+
+  locationsCollection.updateOne(query, payload, (err, res) => {
+    if (err) throw err;
+    console.log("1 document updated.");
+  });
+});
+
+app.get("/viewBusinessProfile", (req, res) => {
+  const data  = req.body
+  const query = {
+    amusement_parks: data.interests.amusement_parks,
+    beach:           data.interests.beach,
+    cafe:            data.interests.cafe,
+    food:            data.interests.food,
+    historical:      data.interests.historical,
+    shopping:        data.interests.shopping,
+    concerts_shows:  data.interests.concerts_shows,
+    nature_hiking:   data.interests.nature_hiking,
+    movies:          data.interests.movies,
+    board_games:     data.interests.board_games,
+    gaming:          data.interests.gaming,
+    puzzles:         data.interests.puzzles,
+    escape_rooms:    data.interests.escape_rooms
+  };
+    
+  locationsCollection.find(query).toArray((err, result => {
+    res.send(result);
+    if (err) throw err;
+    console.log("List of locations returned.");
+  }))
+});
