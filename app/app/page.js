@@ -60,11 +60,16 @@ export default function Home() {
             </p>
           </div>
           {/* Alt signup / signin */}
-          <div className="flex items-center p-5 m-5 space-x-3">
-            <button className="bg-primary font-bold text-secondary p-5 rounded-md hover:text-stone-300">
+          <div className="flex items-center p-5 m-5 gap-5">
+            <a
+              className="bg-primary font-bold text-secondary p-5 rounded-md hover:text-stone-300"
+              href="/signup"
+            >
               Get Started
-            </button>
-            <a href="/login">Already have an account? Sign In</a>
+            </a>
+            <a href="/login" className="text-primary underline">
+              Already have an account? Sign In
+            </a>
           </div>
         </div>
 
