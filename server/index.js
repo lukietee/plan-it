@@ -67,7 +67,6 @@ app.listen(5001, async () => {
   console.log("Server listening on port 5001");
 });
 
-
 app.get("/test", async (req, res) => {
   const data = {
     _id: { $oid: "67959b2b49c5496adbcdd13f" },
@@ -94,41 +93,41 @@ app.get("/test", async (req, res) => {
     disability: false,
     phone_number: "3727388888",
     price_range: "luxary",
-    address: "311 W Peltason Dr a, Irvine, CA 92697"
-  }
+    address: "311 W Peltason Dr a, Irvine, CA 92697",
+  };
 
-  const query   = {email: data.email}; 
-  const payload = { 
-    first_name:      data.first_name, 
-    last_name:       data.last_name,
-    phone_number:    data.phone_number,
-    address:         data.address, 
+  const query = { email: data.email };
+  const payload = {
+    first_name: data.first_name,
+    last_name: data.last_name,
+    phone_number: data.phone_number,
+    address: data.address,
 
-    interests:       {
+    interests: {
       amusement_parks: data.amusement_parks,
-      beach:           data.beach,
-      cafe:            data.cafe,
-      food:            data.food,
-      historical:      data.historical,
-      shopping:        data.shopping,
-      concerts_shows:  data.concerts_shows,
-      nature_hiking:   data.nature_hiking,
-      movies:          data.movies,
-      board_games:     data.board_games,
-      gaming:          data.gaming,
-      puzzles:         data.puzzles,
-      escape_rooms:    data.escape_rooms,
+      beach: data.beach,
+      cafe: data.cafe,
+      food: data.food,
+      historical: data.historical,
+      shopping: data.shopping,
+      concerts_shows: data.concerts_shows,
+      nature_hiking: data.nature_hiking,
+      movies: data.movies,
+      board_games: data.board_games,
+      gaming: data.gaming,
+      puzzles: data.puzzles,
+      escape_rooms: data.escape_rooms,
     },
 
-    price_range:     data.price_range,
+    price_range: data.price_range,
 
-    preferences:     {
-      diet:            data.diet,
-      vegan:           data.vegan,
-      allergies:       data.allergies,
-      wheelchair:      data.wheelchair,
-      disability:      data.disability
-    }
+    preferences: {
+      diet: data.diet,
+      vegan: data.vegan,
+      allergies: data.allergies,
+      wheelchair: data.wheelchair,
+      disability: data.disability,
+    },
   };
 
   try {
@@ -142,37 +141,43 @@ app.get("/test", async (req, res) => {
 });
 
 // Req data [email, password]
-app.post("/createBusinessProfile", (req, res) => {
-  const data    = req.body;
-  const payload = { 
-    email:    data.email, 
-    password: data.password
+app.post("/createBusinessProfile", async (req, res) => {
+  const { email, password } = req.body;
+
+  const payload = {
+    email: email,
+    password: password,
   };
 
-  locationsCollection.insertOne(payload, (err, res) => {
-    if (err) throw err;
-    console.log("1 document inserted.");
-  });
+  await locationsCollection
+    .insertOne(payload)
+    .then((result) => {
+      return res.send({ reason: "success" });
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.send({ reason: "fail" });
+    });
 });
 
 // Req data [email , name, address, operating_hours, type, description, price_range, phone_number, preferences]
 app.post("/updateBusinessProfile", (req, res) => {
-  const data    = req.body;
-  const query   = data.email; 
-  const payload = { 
-    name:            data.name, 
-    address:         data.address, 
-    operating_hours: data.operating_hours, 
-    type:            data.type, 
-    description:     data.description, 
-    price_range:     data.price_range, 
-    phone_number:    data.phone_number, 
+  const data = req.body;
+  const query = data.email;
+  const payload = {
+    name: data.name,
+    address: data.address,
+    operating_hours: data.operating_hours,
+    type: data.type,
+    description: data.description,
+    price_range: data.price_range,
+    phone_number: data.phone_number,
 
-    diet:            data.preferences.diet,
-    vegan:           data.preferences.vegan,
-    allergies:       data.preferences.allergies,
-    wheelchair:      data.preferences.wheelchair,
-    disability:      data.preferences.disability
+    diet: data.preferences.diet,
+    vegan: data.preferences.vegan,
+    allergies: data.preferences.allergies,
+    wheelchair: data.preferences.wheelchair,
+    disability: data.preferences.disability,
   };
 
   locationsCollection.updateOne(query, payload, (err, res) => {
@@ -182,89 +187,92 @@ app.post("/updateBusinessProfile", (req, res) => {
 });
 
 app.get("/viewBusinessProfile", (req, res) => {
-  const data  = req.body
+  const data = req.body;
   const query = {
     amusement_parks: data.interests.amusement_parks,
-    beach:           data.interests.beach,
-    cafe:            data.interests.cafe,
-    food:            data.interests.food,
-    historical:      data.interests.historical,
-    shopping:        data.interests.shopping,
-    concerts_shows:  data.interests.concerts_shows,
-    nature_hiking:   data.interests.nature_hiking,
-    movies:          data.interests.movies,
-    board_games:     data.interests.board_games,
-    gaming:          data.interests.gaming,
-    puzzles:         data.interests.puzzles,
-    escape_rooms:    data.interests.escape_rooms,
+    beach: data.interests.beach,
+    cafe: data.interests.cafe,
+    food: data.interests.food,
+    historical: data.interests.historical,
+    shopping: data.interests.shopping,
+    concerts_shows: data.interests.concerts_shows,
+    nature_hiking: data.interests.nature_hiking,
+    movies: data.interests.movies,
+    board_games: data.interests.board_games,
+    gaming: data.interests.gaming,
+    puzzles: data.interests.puzzles,
+    escape_rooms: data.interests.escape_rooms,
 
-    price_range:     data.price_range,
+    price_range: data.price_range,
 
-    diet:            data.preferences.diet,
-    vegan:           data.preferences.vegan,
-    allergies:       data.preferences.allergies,
-    wheelchair:      data.preferences.wheelchair,
-    disability:      data.preferences.disability
+    diet: data.preferences.diet,
+    vegan: data.preferences.vegan,
+    allergies: data.preferences.allergies,
+    wheelchair: data.preferences.wheelchair,
+    disability: data.preferences.disability,
   };
-    
-  locationsCollection.find(query).toArray((err, result => {
-    res.send(result);
-    if (err) throw err;
-    console.log("List of locations returned.");
-  }))
+
+  locationsCollection.find(query).toArray(
+    (err,
+    (result) => {
+      res.send(result);
+      if (err) throw err;
+      console.log("List of locations returned.");
+    })
+  );
 });
 
 // Req data [email, password]
 app.post("/createUserProfile", (req, res) => {
-  const data    = req.body;
-  const payload = { 
-    email:    data.email, 
-    password: data.password
+  const data = req.body;
+  const payload = {
+    email: data.email,
+    password: data.password,
   };
 
   accountsCollection.insertOne(payload, (err, res) => {
-    if (err) return {"reason": err};
+    if (err) return { reason: err };
     console.log("1 document inserted.");
   });
 
-  return {"reason": "success"}
+  return { reason: "success" };
 });
 
 // Req data [email , name, address, operating_hours, type, description, price_range, phone_number, preferences]
 app.post("/updateUserProfile", (req, res) => {
-  const data    = req.body;
-  const query   = data.email; 
-  const payload = { 
-    first_name:      data.first_name, 
-    last_name:       data.last_name,
-    phone_number:    data.phone_number,
-    address:         data.address, 
+  const data = req.body;
+  const query = data.email;
+  const payload = {
+    first_name: data.first_name,
+    last_name: data.last_name,
+    phone_number: data.phone_number,
+    address: data.address,
 
-    interests:       {
+    interests: {
       amusement_parks: data.amusement_parks,
-      beach:           data.beach,
-      cafe:            data.cafe,
-      food:            data.food,
-      historical:      data.historical,
-      shopping:        data.shopping,
-      concerts_shows:  data.concerts_shows,
-      nature_hiking:   data.nature_hiking,
-      movies:          data.movies,
-      board_games:     data.board_games,
-      gaming:          data.gaming,
-      puzzles:         data.puzzles,
-      escape_rooms:    data.escape_rooms,
+      beach: data.beach,
+      cafe: data.cafe,
+      food: data.food,
+      historical: data.historical,
+      shopping: data.shopping,
+      concerts_shows: data.concerts_shows,
+      nature_hiking: data.nature_hiking,
+      movies: data.movies,
+      board_games: data.board_games,
+      gaming: data.gaming,
+      puzzles: data.puzzles,
+      escape_rooms: data.escape_rooms,
     },
 
-    price_range:     data.price_range,
+    price_range: data.price_range,
 
-    preferences:     {
-      diet:            data.diet,
-      vegan:           data.vegan,
-      allergies:       data.allergies,
-      wheelchair:      data.wheelchair,
-      disability:      data.disability
-    }
+    preferences: {
+      diet: data.diet,
+      vegan: data.vegan,
+      allergies: data.allergies,
+      wheelchair: data.wheelchair,
+      disability: data.disability,
+    },
   };
 
   accountsCollection.updateOne(query, payload, (err, res) => {
