@@ -1,13 +1,20 @@
-import Image from "next/image";
+import { Container } from "postcss";
 
 export default function Home() {
   return (
     <>
-      <nav className="flex items-center justify-between p-5 h-16 bg-rose-400">
+    <nav className="flex items-center justify-between p-5 h-16 bg-rose-400">
         <div className= "flex gap-5 items-center">
-          <a href="" className="text-xl font-bold text-stone-50 hover:text-blue-600 px-10">Plan-It</a>
+          <a href="" className="text-xl font-bold text-stone-50 hover:text-blue-600">Plan-It</a>
         </div>
     </nav>
+
+    <div className="bg-stone-50">
+        
+    </div>
+    <div className="bg-rose-400">
+        
+    </div>
 
     {/* content + pictures */}
     <div className="flex justify-between p-10 items-center">
