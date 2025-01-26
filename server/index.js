@@ -2,10 +2,11 @@ const express = require("express");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
 
 // config() loads environment variables in process.env object (object built into node.js)
 require("dotenv").config();
+
+console.log(process.env.MONGODB_URI)
 
 // Create a MongoClient to access the database
 const client = new MongoClient(process.env.MONGODB_URI, {
@@ -52,9 +53,6 @@ app.use(
 
 // Parse JSON bodies (content-type: application/json) req uired for POST requests
 app.use(bodyParser.json());
-
-// Handle cookies by creating them in the server and sending them to the client to store
-app.use(cookieParser());
 
 // this test is going to take the content from the POST request body and send it back to the client
 app.post("/test", async (req, res) => {
