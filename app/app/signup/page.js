@@ -1,22 +1,24 @@
 import Image from "next/image";
 import business from "../assets/business.png";
 import dater from "../assets/dater.png";
+import heart from "../assets/heart.png";
+import Link from "next/link";
 
 export default function SignUp() {
   return (
     <>
       <nav className="flex items-center justify-between p-5 h-16 bg-primary">
         <div className="flex gap-5 items-center">
-          <a
-            href="#"
-            className="text-xl font-bold text-stone-50 hover:text-blue-600"
+          <Link
+            className="text-3xl  font-bold text-stone-50 hover:text-blue-600"
+            href="/"
           >
             Plan-It
-          </a>
+          </Link>
         </div>
       </nav>
 
-      <div className="w-full flex flex-col gap-16 items-center">
+      <div className="w-full flex flex-col gap-16 items-center relative">
         <p className="pt-24 text-primary text-4xl font-bold">
           How do you want to use Plan-It?
         </p>
@@ -46,6 +48,43 @@ export default function SignUp() {
             </p>
           </section>
         </div>
+
+        <Image
+          alt="heart"
+          className="absolute rotate-45 w-20 h-20 bottom-56 left-24"
+          src={heart}
+          draggable="false"
+        />
+        <Image
+          alt="heart"
+          className="absolute -rotate-45 w-20 h-20 bottom-20 left-10"
+          src={heart}
+          draggable="false"
+        />
+        <Image
+          alt="heart"
+          className="absolute rotate-45 w-20 h-20 -bottom-10 left-24"
+          src={heart}
+          draggable="false"
+        />
+        <Image
+          alt="heart"
+          className="absolute rotate-45 w-20 h-20 bottom-56 right-24"
+          src={heart}
+          draggable="false"
+        />
+        <Image
+          alt="heart"
+          className="absolute -rotate-45 w-20 h-20 bottom-20 right-10"
+          src={heart}
+          draggable="false"
+        />
+        <Image
+          alt="heart"
+          className="absolute rotate-45 w-20 h-20 -bottom-10 right-24"
+          src={heart}
+          draggable="false"
+        />
       </div>
     </>
   );
