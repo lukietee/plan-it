@@ -56,9 +56,6 @@ app.use(bodyParser.json());
 // Handle cookies by creating them in the server and sending them to the client to store
 app.use(cookieParser());
 
-// timeout middleware to prevent the server from hanging if the client takes too long to respond
-app.use(timeout("100s"));
-
 // this test is going to take the content from the POST request body and send it back to the client
 app.post("/test", async (req, res) => {
   const { content } = req.body;
