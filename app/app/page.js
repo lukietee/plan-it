@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <nav className="flex items-center justify-between p-5 h-16 bg-rose-400">
         <div className= "flex gap-5 items-center">
-          <a href="" className="text-xl font-bold text-stone-50 hover:text-blue-600">Plan-It</a>
+          <a href="" className="text-xl font-bold text-stone-50 hover:text-blue-600 px-10">Plan-It</a>
 
           <a href="#" className="text-stone-50 hover:text-blue-600">Dating</a>
           <a href="#" className="text-stone-50 hover:text-blue-600">Businesses</a>
