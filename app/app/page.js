@@ -9,13 +9,13 @@ export default function Home() {
         <div className= "flex gap-5 items-center">
           <a href="" className="text-xl font-bold text-stone-50 hover:text-blue-600">Plan-It</a>
 
-          <a href="#" className="text-background hover:text-blue-600">Dating</a>
-          <a href="#" className="text-background hover:text-blue-600">Businesses</a>
+          <a href="#" className="text-secondary hover:text-blue-600">Dating</a>
+          <a href="#" className="text-secondary hover:text-blue-600">Businesses</a>
         </div>
         <div>
           <ul className="flex gap-4">
-            <li><a href="login" className="bg-background text-primary hover:text-blue-600 rounded-md p-2">Log in</a></li>
-            <li><a href="signup" className="bg-background text-primary hover:text-blue-600 rounded-md p-2">Sign up</a></li>
+            <li><a href="login" className="bg-secondary text-primary hover:text-blue-600 rounded-md p-2">Log in</a></li>
+            <li><a href="signup" className="bg-secondary text-primary hover:text-blue-600 rounded-md p-2">Sign up</a></li>
           </ul>
         </div>
     </nav>
@@ -38,7 +38,7 @@ export default function Home() {
         </div>
         {/* Alt signup / signin */}
         <div className='flex items-center p-5 m-5 space-x-3'>
-          <button className='bg-primary font-bold p-5 text-background p-5 rounded-md hover:text-stone-300'>
+          <button className='bg-primary font-bold p-5 text-secondary p-5 rounded-md hover:text-stone-300'>
             Get Started
           </button>
           <a href="#">
