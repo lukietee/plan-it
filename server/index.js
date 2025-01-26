@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 // config() loads environment variables in process.env object (object built into node.js)
 require("dotenv").config();
 
-console.log(process.env.MONGODB_URI)
+console.log(process.env.MONGODB_URI);
 
 // Create a MongoClient to access the database
 const client = new MongoClient(process.env.MONGODB_URI, {
@@ -33,20 +33,20 @@ async function connectToDB() {
 connectToDB();
 
 // node.js runs top to bottom. Once the sever connects to mongoDB, locate the tailwind collection
-// const leaderboardCollection = client
-//   .db(process.env.MONGODB_DATABASE)
-//   .collection(process.env.MONGODB_COLLECTION_LEADERBOARD);
+const locationsCollection = client
+  .db(process.env.MONGODB_DATABASE)
+  .collection(process.env.MONGODB_COLLECTION_LOCATIONS);
 
-// const accountsCollection = client
-//   .db(process.env.MONGODB_DATABASE)
-//   .collection(process.env.MONGODB_COLLECTION_ACCOUNTS);
+const accountsCollection = client
+  .db(process.env.MONGODB_DATABASE)
+  .collection(process.env.MONGODB_COLLECTION_ACCOUNTS);
 
 const app = express();
 // allow client to make requests to server (allowing localhost at the moment)
 // credentials set to true so front-end can send cookies to the server (for authentication purposes)
 app.use(
   cors({
-    origin: ["http://127.0.0.1:3000"],
+    origin: ["http://127.0.0.1:3000", "https://planithacks.vercel.app"],
     credentials: true,
   })
 );
