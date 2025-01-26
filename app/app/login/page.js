@@ -52,7 +52,7 @@ export default function Home() {
       <nav className="flex items-center justify-between p-5 h-16 bg-primary">
         <div className="flex gap-5 items-center">
           <a
-            href=""
+            href="https://planithacks.vercel.app/"
             className="text-xl font-bold text-secondary hover:text-blue-600"
           >
             Plan-It
