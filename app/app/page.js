@@ -53,7 +53,7 @@ export default function Home() {
         <a href="#">Already have an account? Sign In</a>
       </div>
       <>
-        <Image alt="anteater" src={uci_Logo} width={200} height={200} />
+        <Image alt="anteater" src={UCILogo} width={200} height={200} />
         <Image alt="logo" src={Logo} width={500} height={500} />
       </>
     </>
