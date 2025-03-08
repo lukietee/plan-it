@@ -4,6 +4,8 @@ By: Larry Le, Jackson Nguyen, Lucas Trinh, and Minh Truong
 
 Devpost: https://devpost.com/software/plan-it-for-your-next-successful-date
 
+![image_alt](https://github.com/lukietee/plan-it/blob/735ddc25640fc7b9753e97aee7409765b4ecfb94/Images/planit1%20(1).jpg)
+
 ## Inspiration
 We've always found trouble securing date locations. Making choices is too difficult when you have so many options in your face. Imagine you want to travel to Japan one day. What decisions will you make in terms of activities or restaurants? Plan-it allows you to explore the world and discover activities and local businesses you would not have discovered on your own. With customizable preferences, you can find something to do with the click of a finger!
 
