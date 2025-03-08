@@ -9,14 +9,16 @@ Devpost: https://devpost.com/software/plan-it-for-your-next-successful-date
 ## Inspiration
 We've always found trouble securing date locations. Making choices is too difficult when you have so many options in your face. Imagine you want to travel to Japan one day. What decisions will you make in terms of activities or restaurants? Plan-it allows you to explore the world and discover activities and local businesses you would not have discovered on your own. With customizable preferences, you can find something to do with the click of a finger!
 
-![image_alt](https://github.com/lukietee/plan-it/blob/6768ced1b8cd2cb354c3265bca4f35cc9d4f7973/Images/planit6%20(1).jpg)
+![image_alt](https://github.com/lukietee/plan-it/blob/e6126478cea9d6c93ea45506199efeef9528882b/Images/planit6.jpg)
+
+![image_alt](https://github.com/lukietee/plan-it/blob/e6126478cea9d6c93ea45506199efeef9528882b/Images/planit5.jpg)
 
 ## What it does
 Plan-it lets both the users looking for date spots and local businesses looking to promote themselves create profiles. The users can request to have a date at the local business and the business can decide whether to fulfill the request.
 
-![image_alt](https://github.com/lukietee/plan-it/blob/6768ced1b8cd2cb354c3265bca4f35cc9d4f7973/Images/planit2%20(1).jpg)
+![image_alt](https://github.com/lukietee/plan-it/blob/e6126478cea9d6c93ea45506199efeef9528882b/Images/planit3.jpg)
 
-![image_alt](https://github.com/lukietee/plan-it/blob/6768ced1b8cd2cb354c3265bca4f35cc9d4f7973/Images/planit5%20(1).jpg)
+![image_alt](https://github.com/lukietee/plan-it/blob/e6126478cea9d6c93ea45506199efeef9528882b/Images/planit4.jpg)
 
 ## How we built it
 We created a full-stack application with the front-end being Next.js and the Backend being Node.js
